@@ -37,7 +37,6 @@ namespace Slavda
 
         private void Button_Clicked_Clear(object sender, EventArgs e)
         {
-            purchases.Remove()
         }
     }
 }
