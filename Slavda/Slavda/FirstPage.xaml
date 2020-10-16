@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Slavda.FirstPage"
+             Title="Cart">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <ListView x:Name="list_cart">
+	            <ListView.ItemTemplate>
+		            <DataTemplate>
+			            <ViewCell>
+				            <StackLayout  x:Name="cart" Orientation="Horizontal">
+                                <Image/>
+                                <Label VerticalOptions="Center" FontSize="20" Text="{Binding name}"/>
+					            <Label VerticalOptions="Center" FontSize="20" Text="{Binding count}"/>
+					            <Stepper  HorizontalOptions="EndAndExpand"/>
+					            <Button Text="x" Clicked="Button_Clicked_Clear"/>
+				            </StackLayout>
+			            </ViewCell>
+		            </DataTemplate>
+	            </ListView.ItemTemplate>
+            </ListView>
+	        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Margin="0, 0, 0, 30">
+		        <Button Text="Order" Clicked="Button_Clicked_All"></Button>
+	        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
