@@ -7,14 +7,14 @@
         <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged" BackgroundColor="#F4F4F4" Margin="10, 5, 10, 0">
             <Picker.Items>
                 <x:String>Water</x:String>
-                <x:String>Juice</x:String>
-                <x:String>Coca-cola</x:String>
+                <x:String>Fanta</x:String>
+                <x:String>Cola</x:String>
                 <x:String>Pepsi</x:String>
             </Picker.Items>
         </Picker>
 	        <Frame Margin="10, 5, 10, 0" HeightRequest="300" BorderColor="#F4F4F4">
-            <Image/>
-        </Frame>
+            <Image x:Name="image" Source=""/>
+			</Frame>
         <Label x:Name="description" Text="Вы ничего не выбрали" FontSize="20" HorizontalOptions="Center"/>
         <StackLayout Orientation="Horizontal" Margin="10, 5, 10, 0">
             <Editor x:Name="all_count" HorizontalOptions="FillAndExpand" IsReadOnly="true" Placeholder="Count"/>

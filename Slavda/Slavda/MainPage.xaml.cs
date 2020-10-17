@@ -10,6 +10,7 @@ namespace Slavda
 {
     public partial class MainPage : ContentPage
     {
+        List<string> images = new List<string> { "Water.png", "Fanta.png", "Coca.png", "Pepsi.png" };
         public MainPage()
         {
             InitializeComponent();
@@ -18,7 +19,7 @@ namespace Slavda
         private void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             description.Text = (sender as Picker)?.SelectedItem.ToString();
-
+            image.Source = images[picker.SelectedIndex];
         }
 
         private void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -41,6 +42,7 @@ namespace Slavda
             {
                 FirstPage.purchases[picker.SelectedItem?.ToString()] = new Purchase()
                 {
+                    image = images[picker.SelectedIndex].ToString(),
                     name = picker.SelectedItem?.ToString(),
                     count = Convert.ToInt32(all_count.Text)
                 };

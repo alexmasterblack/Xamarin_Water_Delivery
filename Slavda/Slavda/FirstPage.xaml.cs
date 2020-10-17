@@ -11,6 +11,7 @@ namespace Slavda
 {
     public class Purchase
     {
+        public string image { get; set; }
         public string name { get; set; }
         public int count { get; set; }
     }

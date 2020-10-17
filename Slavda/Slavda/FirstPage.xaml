@@ -9,14 +9,16 @@
 	            <ListView.ItemTemplate>
 		            <DataTemplate>
 			            <ViewCell>
-				            <StackLayout  x:Name="cart" Orientation="Horizontal">
-                                <Image/>
+                            <StackLayout  x:Name="cart" Orientation="Horizontal" Margin="3">
+                                <Grid WidthRequest="50">
+                                    <Image Source="{Binding image}"/>
+                                </Grid>
                                 <Label VerticalOptions="Center" FontSize="20" Text="{Binding name}"/>
-					            <Label VerticalOptions="Center" FontSize="20" Text="{Binding count}"/>
-					            <Stepper  HorizontalOptions="EndAndExpand"/>
-					            <Button Text="x" Clicked="Button_Clicked_Clear"/>
-				            </StackLayout>
-			            </ViewCell>
+                                <Label VerticalOptions="Center" FontSize="20" Text="{Binding count}"/>
+                                <Stepper  HorizontalOptions="EndAndExpand"/>
+                                <Button Text="x" FontSize="13" Clicked="Button_Clicked_Clear" WidthRequest="50"/>
+                            </StackLayout>
+                        </ViewCell>
 		            </DataTemplate>
 	            </ListView.ItemTemplate>
             </ListView>
