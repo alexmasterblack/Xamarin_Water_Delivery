@@ -16,7 +16,7 @@ namespace Slavda
             InitializeComponent();
         }
 
-        private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             description.Text = (sender as Picker)?.SelectedItem.ToString();
             image.Source = images[picker.SelectedIndex];
@@ -29,7 +29,9 @@ namespace Slavda
 
         private async void Button_Clicked_Order(object sender, EventArgs e)
         {
+            order.IsEnabled = false;
             await Navigation.PushAsync(new FirstPage());
+            order.IsEnabled = true;
         }
 
         private async void Button_Clicked_Confirm(object sender, EventArgs e)
@@ -47,6 +49,21 @@ namespace Slavda
                     count = Convert.ToInt32(all_count.Text)
                 };
                 await DisplayAlert("Order", "Successful!", "Ok");
+            }
+        }
+
+        private void Editor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (all_count.Text.Length == 0)
+            {
+                stepper.Value = 0;
+            } else
+            {
+                stepper.Value = Convert.ToInt32(all_count.Text);
+            }
+            if (stepper.Value == 0)
+            {
+                all_count.Text = "";
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,14 @@ namespace Slavda
 
         private void Button_Clicked_Clear(object sender, EventArgs e)
         {
+            var item = (
+                from purchase in purchases
+                where purchase.Value.name == (sender as Button).CommandParameter.ToString()
+                select purchase).FirstOrDefault();
+            
+            purchases.Remove(item.Key);
+            list_cart.ItemsSource = purchases.Select((thing) => { return thing.Value; }).ToList();
         }
+
     }
 }
