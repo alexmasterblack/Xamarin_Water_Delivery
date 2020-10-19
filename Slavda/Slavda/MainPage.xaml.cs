@@ -54,12 +54,15 @@ namespace Slavda
 
         private void Editor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (all_count.Text.Length == 0)
+            if (all_count.Text.Length == 0 || all_count.Text.Length >= 3)
             {
                 stepper.Value = 0;
-            } else
+            } else if (all_count.Text.Length > 0 && all_count.Text.All(char.IsDigit))
             {
                 stepper.Value = Convert.ToInt32(all_count.Text);
+            } else if (all_count.Text == "-")
+            {
+                all_count.Text = all_count.Text.Remove(all_count.Text.Length - 1);
             }
             if (stepper.Value == 0)
             {
