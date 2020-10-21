@@ -13,8 +13,8 @@
                                 <Grid WidthRequest="50">
                                     <Image Source="{Binding image}"/>
                                 </Grid>
-                                <Label VerticalOptions="Center" FontSize="20" Text="{Binding name}"/>
-                                <Label VerticalOptions="Center" FontSize="20" WidthRequest="23" Text="{Binding count}"/>
+                                <Label VerticalOptions="Center" FontSize="19" Text="{Binding name}"/>
+                                <Label VerticalOptions="Center" FontSize="19" WidthRequest="23" Text="{Binding count}"/>
                                 <Stepper Value="{Binding Count}"/>
                                 <Button Text="x" FontSize="13" Clicked="Button_Clicked_Clear" CommandParameter="{Binding name}"  WidthRequest="50"/>
                             </StackLayout>

@@ -60,7 +60,7 @@ namespace Slavda
             } else if (all_count.Text.Length > 0 && all_count.Text.All(char.IsDigit))
             {
                 stepper.Value = Convert.ToInt32(all_count.Text);
-            } else if (all_count.Text == "-")
+            } else if (!all_count.Text.All(char.IsDigit))
             {
                 all_count.Text = all_count.Text.Remove(all_count.Text.Length - 1);
             }

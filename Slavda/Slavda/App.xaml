@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Slavda.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="PerfectDOSVGA437.ttf#PerfectDOSVGA437"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="PerfectDOSVGA437.ttf#PerfectDOSVGA437"/>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="FontFamily" Value="PerfectDOSVGA437.ttf#PerfectDOSVGA437"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
