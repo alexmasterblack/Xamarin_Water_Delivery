@@ -47,6 +47,5 @@ namespace Slavda
             purchases.Remove(item.Key);
             list_cart.ItemsSource = purchases.Select((thing) => { return thing.Value; }).ToList();
         }
-
     }
 }

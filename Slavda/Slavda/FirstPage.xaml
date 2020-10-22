@@ -13,9 +13,11 @@
                                 <Grid WidthRequest="50">
                                     <Image Source="{Binding image}"/>
                                 </Grid>
-                                <Label VerticalOptions="Center" FontSize="19" Text="{Binding name}"/>
-                                <Label VerticalOptions="Center" FontSize="19" WidthRequest="23" Text="{Binding count}"/>
-                                <Stepper Value="{Binding Count}"/>
+                                <Grid WidthRequest="50">
+                                    <Label VerticalOptions="Center" FontSize="18" Text="{Binding name}"/>
+                                </Grid>
+                                <Label VerticalOptions="Center" BindingContext="{x:Reference Name=stepper}" FontSize="18" WidthRequest="23" Text="{Binding Value}"/>
+                                <Stepper Value="{Binding count}" Minimum="1" Maximum="100" x:Name="stepper"/>
                                 <Button Text="x" FontSize="13" Clicked="Button_Clicked_Clear" CommandParameter="{Binding name}"  WidthRequest="50"/>
                             </StackLayout>
                         </ViewCell>
@@ -23,7 +25,7 @@
 	            </ListView.ItemTemplate>
             </ListView>
 	        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Margin="0, 0, 0, 30">
-		        <Button Text="Order" Clicked="Button_Clicked_All"></Button>
+                <Button Text="Order"  FontSize="16" CornerRadius="5" Clicked="Button_Clicked_All"></Button>
 	        </StackLayout>
         </StackLayout>
     </ContentPage.Content>

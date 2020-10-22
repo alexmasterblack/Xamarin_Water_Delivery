@@ -21,8 +21,8 @@
             <Stepper x:Name="stepper" Minimum="0" Maximum="100" ValueChanged="Stepper_ValueChanged"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0, 20, 0, 0" HeightRequest="45">
-            <Button Text="Confirm" BackgroundColor="#E0E0E0" CornerRadius="5" Clicked="Button_Clicked_Confirm"/>
-            <Button x:Name="order" Text="Cart" BackgroundColor="#E0E0E0" CornerRadius="5" Clicked="Button_Clicked_Order"/>
+            <Button Text="Confirm" FontSize="16" BackgroundColor="#E0E0E0" CornerRadius="5" Clicked="Button_Clicked_Confirm"/>
+            <Button x:Name="order" FontSize="16" Text="Cart" BackgroundColor="#E0E0E0" CornerRadius="5" Clicked="Button_Clicked_Order"/>
         </StackLayout>
 
     </StackLayout>
