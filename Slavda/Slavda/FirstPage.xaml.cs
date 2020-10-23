@@ -29,22 +29,20 @@ namespace Slavda
 
         private async void Button_Clicked_All(object sender, EventArgs e)
         {
-            if (await DisplayAlert("Order", "Are you sure?", "Yes", "No"))
+            if (purchases.Any())
             {
-                purchases.Clear();
-                list_cart.ItemsSource = "";
-                await Navigation.PopAsync();
+                if (await DisplayAlert("Order", "Are you sure?", "Yes", "No"))
+                {
+                    purchases.Clear();
+                    list_cart.ItemsSource = "";
+                    await Navigation.PopAsync();
+                }
             }
         }
 
         private void Button_Clicked_Clear(object sender, EventArgs e)
         {
-            var item = (
-                from purchase in purchases
-                where purchase.Value.name == (sender as Button).CommandParameter.ToString()
-                select purchase).FirstOrDefault();
-            
-            purchases.Remove(item.Key);
+            purchases.Remove((sender as Button)?.CommandParameter.ToString());
             list_cart.ItemsSource = purchases.Select((thing) => { return thing.Value; }).ToList();
         }
     }
