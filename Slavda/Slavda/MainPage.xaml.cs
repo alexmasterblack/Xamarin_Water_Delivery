@@ -54,7 +54,7 @@ namespace Slavda
 
         private void Editor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (all_count.Text.Length == 0 || all_count.Text.Length >= 3)
+            if (all_count.Text.Length == 0 || all_count.Text.Length > 3)
             {
                 stepper.Value = 0;
             } else if (all_count.Text.Length > 0 && all_count.Text.All(char.IsDigit))
