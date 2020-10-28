@@ -9,8 +9,8 @@ using Xamarin.Forms;
 namespace Slavda
 {
     public partial class MainPage : ContentPage
-    {
-        List<string> images = new List<string> { "Water.png", "Fanta.png", "Coca.png", "Pepsi.png" };
+    {   
+        public List<string> images = new List<string> { "Water.png", "Fanta.png", "Coca.png", "Pepsi.png" };
         public MainPage()
         {
             InitializeComponent();
@@ -19,6 +19,7 @@ namespace Slavda
         private void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             description.Text = (sender as Picker)?.SelectedItem.ToString();
+            all_count.Text = "0"; 
             image.Source = images[picker.SelectedIndex];
         }
 
