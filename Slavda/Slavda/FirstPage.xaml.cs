@@ -20,11 +20,11 @@ namespace Slavda
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstPage : ContentPage
     {
-        public static SortedDictionary<string, Purchase> purchases = new SortedDictionary<string, Purchase>();
+        public static ObservableCollection<Purchase> purchases = new ObservableCollection<Purchase>();
         public FirstPage()
         {
             InitializeComponent();
-            list_cart.ItemsSource = purchases.Select((thing) => { return thing.Value; }).ToList();
+            list_cart.ItemsSource = purchases;
         }
 
         private async void Button_Clicked_All(object sender, EventArgs e)
@@ -34,7 +34,6 @@ namespace Slavda
                 if (await DisplayAlert("Order", "Are you sure?", "Yes", "No"))
                 {
                     purchases.Clear();
-                    list_cart.ItemsSource = "";
                     await Navigation.PopAsync();
                 }
             }
@@ -42,8 +41,7 @@ namespace Slavda
 
         private void Button_Clicked_Clear(object sender, EventArgs e)
         {
-            purchases.Remove((sender as Button)?.CommandParameter.ToString());
-            list_cart.ItemsSource = purchases.Select((thing) => { return thing.Value; }).ToList();
+            purchases.Remove(purchases.Where(item => item.name == (sender as Button)?.CommandParameter.ToString()).First());
         }
     }
 }

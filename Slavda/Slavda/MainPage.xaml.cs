@@ -28,11 +28,12 @@ namespace Slavda
             all_count.Text = (sender as Stepper)?.Value.ToString();
         }
 
-        private async void Button_Clicked_Order(object sender, EventArgs e)
+        private void Button_Clicked_Order(object sender, EventArgs e)
         {
-            order.IsEnabled = false;
-            await Navigation.PushAsync(new FirstPage());
-            order.IsEnabled = true;
+            if (Navigation.NavigationStack.Count == 1)
+            {
+                Navigation.PushAsync(new FirstPage());
+            }
         }
 
         private async void Button_Clicked_Confirm(object sender, EventArgs e)
@@ -40,15 +41,19 @@ namespace Slavda
             if (picker.SelectedIndex == -1 || stepper.Value == 0)
             {
                 await DisplayAlert("Error", "Invalid input", "Ok");
+                return;
             }
-            else
-            {
-                FirstPage.purchases[picker.SelectedItem?.ToString()] = new Purchase()
+            else {
+                if (FirstPage.purchases.Any(item => item.name == picker.SelectedItem?.ToString()))
+                {
+                    FirstPage.purchases.Remove(FirstPage.purchases.Where(item => item.name == picker.SelectedItem?.ToString()).Single());
+                }
+                FirstPage.purchases.Add(new Purchase()
                 {
                     image = images[picker.SelectedIndex].ToString(),
                     name = picker.SelectedItem?.ToString(),
                     count = Convert.ToInt32(all_count.Text)
-                };
+                });
                 await DisplayAlert("Order", "Successful!", "Ok");
             }
         }
