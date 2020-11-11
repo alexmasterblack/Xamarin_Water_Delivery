@@ -13,6 +13,10 @@
             <Style TargetType="Picker">
                 <Setter Property="FontFamily" Value="PerfectDOSVGA437.ttf#PerfectDOSVGA437"/>
             </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#E0E0E0"/>
+                <Setter Property="BarTextColor" Value="Black"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
